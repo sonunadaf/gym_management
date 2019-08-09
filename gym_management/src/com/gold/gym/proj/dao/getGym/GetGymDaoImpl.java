@@ -39,5 +39,24 @@ public class GetGymDaoImpl implements GetGymDao{
 		}
 		return gymFromDb;
 	}
+	@Override
+	public GymEntity getGymEntity(String userName) throws DAOException {
+		Session session=null;
+		GymEntity gymFromDb=null;
+		try {
+			String hql="from GymEntity where gymUserName=:un";
+			session=sessionFactory.openSession();
+			Query query=session.createQuery(hql);
+			query.setParameter("un", userName);
+			gymFromDb= (GymEntity) query.uniqueResult();
+		} catch (HibernateException e) {
+			logger.error(ExceptionConstant.DAO + this.getClass().getSimpleName() + " " + e.getMessage());
+			throw new DAOException(ExceptionConstant.DAO + this.getClass().getSimpleName() + " " + e.getMessage());
+		}catch (Exception e) {
+			logger.error(ExceptionConstant.DAO + this.getClass().getSimpleName() + " " + e.getMessage());
+			throw new DAOException(ExceptionConstant.DAO + this.getClass().getSimpleName() + " " + e.getMessage());
+		}
+		return gymFromDb;
+	}
 
 }

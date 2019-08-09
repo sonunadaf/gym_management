@@ -6,4 +6,5 @@ import com.gold.gym.proj.exception.ServiceException;
 public interface GetGymService {
 
 	public GymEntity getGymEntity(String userName,String password) throws ServiceException;
+	public GymEntity getGymEntity(String userName) throws ServiceException;
 }

@@ -28,6 +28,7 @@
 				<value>com.gold.gym.proj.entity.member.MemberEntity</value>
 				<value>com.gold.gym.proj.entity.monthlywt.MonthlyWtEntity</value>
 				<value>com.gold.gym.proj.entity.weight.WeightEntity</value>
+				<value>com.gold.gym.proj.entity.gymtypelist.GymTypeEntity</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

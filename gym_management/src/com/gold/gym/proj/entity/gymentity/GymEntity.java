@@ -1,5 +1,6 @@
 package com.gold.gym.proj.entity.gymentity;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -11,12 +12,17 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.gold.gym.proj.entity.gymtypelist.GymTypeEntity;
 import com.gold.gym.proj.entity.member.MemberEntity;
 
 @Entity
 @Table(name = "gym_details")
-public class GymEntity {
+public class GymEntity implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GenericGenerator(name = "auto", strategy = "increment")
 	@GeneratedValue(generator = "auto")
@@ -32,6 +38,14 @@ public class GymEntity {
 	private String gymPassword;
 	@OneToMany(mappedBy = "gymEntity")
 	private Set<MemberEntity> memberEntities;
+	public Set<GymTypeEntity> getGymTypeEntities() {
+		return gymTypeEntities;
+	}
+	public void setGymTypeEntities(Set<GymTypeEntity> gymTypeEntities) {
+		this.gymTypeEntities = gymTypeEntities;
+	}
+	@OneToMany(mappedBy = "gymEntity")
+	private Set<GymTypeEntity> gymTypeEntities;
 	
 	public int getGymId() {
 		return gymId;

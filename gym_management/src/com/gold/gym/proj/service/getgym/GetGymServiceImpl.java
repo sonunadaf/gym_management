@@ -33,4 +33,19 @@ public class GetGymServiceImpl implements GetGymService {
 		return gymFromDb;
 	}
 
+	@Override
+	public GymEntity getGymEntity(String userName) throws ServiceException {
+		GymEntity gymFromDb;
+		try {
+			gymFromDb = getGymDao.getGymEntity(userName);
+		} catch (DAOException e) {
+			logger.error(ExceptionConstant.SERVICE + this.getClass().getSimpleName() + " " + e.getMessage());
+			throw new ServiceException(ExceptionConstant.SERVICE + this.getClass().getSimpleName() + " " + e.getMessage());
+		}catch (Exception e) {
+			logger.error(ExceptionConstant.SERVICE + this.getClass().getSimpleName() + " " + e.getMessage());
+			throw new ServiceException(ExceptionConstant.SERVICE + this.getClass().getSimpleName() + " " + e.getMessage());
+		}
+		return gymFromDb;
+	}
+
 }

@@ -23,7 +23,9 @@
 			<a  href="addMember.do" style="color:black;"> 1. Add Member</a><br></br>
 			<a  href="appointment.do" style="color:black;">2. Enquiry Form</a> <br></br>
 			<a  href="addGym.do" style="color:black;">3. Add New Gym</a><br></br>
-			<a  href="memberList.do" style="color:black;">4. Member List</a> 
+			<a  href="memberList.do" style="color:black;">4. Member List</a><br></br>
+			<a  href="addGymType.do" style="color:black;">5. Add Gym Type  </a> <br></br>
+			<a  href="#" style="color:black;">6. Add Plan  </a> 
 			</h5>
 			</div>
 		</div>
